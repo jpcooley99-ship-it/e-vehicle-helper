@@ -7,7 +7,7 @@ import StepDestinations from './StepDestinations.jsx'
 
 const STEPS = [
   { label: 'About you',    component: StepLocation },
-  { label: 'Current car',  component: StepCurrentCar },
+  { label: 'Your car',     component: StepCurrentCar },
   { label: 'New car',      component: StepDesiredCar },
   { label: 'Journeys',     component: StepDestinations },
 ]
@@ -20,7 +20,7 @@ function validateStep(step, data) {
     if (data.hasDriveway && data.hasHomeCharging === undefined) return 'Please tell us if you can charge from home.'
   }
   if (step === 2) {
-    if (!data.currentCarId) return 'Please select your current car.'
+    if (!data.currentCarId) return "Please select your current car, or choose 'I don't currently own a car'."
     if (!data.annualMiles || data.annualMiles < 100) return 'Please enter a valid annual mileage.'
   }
   if (step === 3) {
